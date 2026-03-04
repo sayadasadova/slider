@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✦Sirius</title>
+    <style>
+        body {margin: 0; display: flex; height: 100vh;}
+        #slidee{ width: 80vw; height: 100vh; box-shadow: 0 0 10px #333; margin: auto;
+            display: flex; justify-content: space-between; align-items: center; transition: 1s;
+            background-image: cover;
+        }
+        button {
+            border: none;
+            border-radius: 60%;
+            color: white;
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body>
+      
+    <div id="slidee">
+            <button onclick="change(-1)">⯇</button>
+            <button onclick="change(1)">⯈</button>
+    </div>
+
+    <script>
+            let slidee = document.getElementById('slidee')
+            let x = 1
+            let timer = setTimeout(change, 0, 0)
+
+            function change(dir) {
+                clearTimeout(timer)
+                x += dir
+                if (x < 1) x = 10
+                if (x > 10) x = 1
+                slidee.style = `background: url('img/${x}.png') center/cover`
+                timer = setTimeout(change, 4000, 1)
+            }
+    </script>
+</body>
+</html>
